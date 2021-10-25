@@ -31,7 +31,7 @@ public class Dealeur : MonoBehaviour
         }
         if (inv.listeObjet["argent"] >= price)
         {
-            inv.Add("shit", value);
+            inv.Add("Shit", value);
             inv.Remove("argent", price);
         }
         else

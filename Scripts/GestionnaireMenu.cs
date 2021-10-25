@@ -22,6 +22,11 @@ public class GestionnaireMenu : MonoBehaviour
     public GameObject panelClient;
     public bool stateClient = false;
 
+    // Home Variables
+    public GameObject panelHome;
+    public bool stateHome = false;
+    public Home home;
+
     // Coroutine Variables
     private IEnumerator coroutine;
 
@@ -50,6 +55,7 @@ public class GestionnaireMenu : MonoBehaviour
         Close("InventaireForce");
         Close("DealeurForce");
         Close("ClientForce");
+        Close("HomeForce");
         CloseMessage();
     }
 
@@ -89,6 +95,14 @@ public class GestionnaireMenu : MonoBehaviour
             panelClient.SetActive(true);
             affDemandeClient.text = "Bonjour, j'ai besoin d'un " + cm.prixTransac + "€ de " + cm.drogueTypeTransac + ".";
             stateClient = true;
+            menuOpen = true;
+            
+        }
+        // Home
+        if(menuName == "Home" && stateHome == false && menuOpen == false)
+        {
+            panelHome.SetActive(true);
+            stateHome = true;
             menuOpen = true;
             
         }
@@ -160,6 +174,21 @@ public class GestionnaireMenu : MonoBehaviour
             stateClient = false;
             menuOpen = false;
         }
+        // Home
+        if(menuName == "Home" && stateHome == true)
+        {
+            home.ButtonDetaillerFermer();
+            panelHome.SetActive(false);
+            coroutine = StateFalse("Home");
+            StartCoroutine(coroutine);
+        }
+        else if (menuName == "HomeForce")
+        {
+            home.ButtonDetaillerFermer();
+            panelHome.SetActive(false);
+            stateHome = false;
+            menuOpen = false;
+        }
     }
 
     IEnumerator StateFalse(string cible) 
@@ -183,6 +212,11 @@ public class GestionnaireMenu : MonoBehaviour
         if (cible == "Client")
         {
             stateClient = false;
+            menuOpen = false;
+        }
+        if (cible == "Home")
+        {
+            stateHome = false;
             menuOpen = false;
         }
     }

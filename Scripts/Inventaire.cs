@@ -17,13 +17,6 @@ public class Inventaire : MonoBehaviour
     void Start()
     {
         Add("argent", 360);
-        Add("10Shit(2,5g)", 5);
-        Add("20Shit(2,2g)", 5);
-        Add("10Beuh(1,3g)", 5);
-        Add("20Beuh(2,0g)", 5);
-        Add("30Shit(2,2g)", 5);
-        Add("30Beuh(1,3g)", 5);
-
     }
 
     public void Add(string name, float value)

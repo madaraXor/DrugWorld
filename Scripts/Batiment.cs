@@ -54,6 +54,10 @@ public class Batiment : MonoBehaviour
         {
             aff.SetActive(true);
         }
+        if (name == "Home" && gm.stateHome == false)
+        {
+            aff.SetActive(true);
+        }
         if (gm.menuOpen)
         {
             aff.SetActive(false);

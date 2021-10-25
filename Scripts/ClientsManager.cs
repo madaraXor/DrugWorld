@@ -173,7 +173,7 @@ public class ClientsManager : MonoBehaviour
                     {
                         if (item1.Value.transform.name == clientEnCour.transform.name)
                         {
-                            Debug.Log("spawn trouver");
+                            //Debug.Log("spawn trouver");
                             spawnEnCour = item1.Key;
                             break;
                         }
